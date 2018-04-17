@@ -3,18 +3,18 @@
   <component name="Play2ExcludedModulesSettings">
     <option name="INFO">
       <map>
-        <entry key="group9Project">
+        <entry key="gropu9Project">
           <value>
             <ProjectSettingsEntry>
-              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.6.12.jar" />
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.6.13.jar" />
             </ProjectSettingsEntry>
           </value>
         </entry>
-        <entry key="group9project">
+        <entry key="gropu9project">
           <value>
             <ProjectSettingsEntry>
-              <option name="confDir" value="D:\Study\BigData\Assignment\Project\csye7200-spring2018-group9\app" />
-              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.6.12.jar" />
+              <option name="confDir" value="D:\Study\BigData\Assignment\csye7200-spring2018-group9\app" />
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.6.13.jar" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -37,7 +37,7 @@
                   <option value="controllers.Assets.Asset" />
                 </list>
               </option>
-              <option name="uri" value="/D:/Study/BigData/Assignment/Project/csye7200-spring2018-group9" />
+              <option name="uri" value="/D:/Study/BigData/Assignment/csye7200-spring2018-group9" />
             </ProjectSettingsEntry>
           </value>
         </entry>
