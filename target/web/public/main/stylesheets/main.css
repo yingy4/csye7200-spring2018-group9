@@ -48,7 +48,7 @@ article blockquote code,article .note code{background:#f5d899;border:none;color:
 article blockquote a,article .note a{color:#6dae38;}
 article blockquote pre,article .note pre{background:#F5D899 !important;color:#48484C !important;border:none !important;}
 article p.note{padding:15px 20px;}
-article table{width:100%;}article table td{padding:8px;}
+article table{width:120%;}article table td{padding:8px;}
 article table tr{background:#F4F4F7;border-bottom:1px solid #eee;}
 article table tr:nth-of-type(odd){background:#fafafa;}
 article dl dt{font-weight:bold;}
