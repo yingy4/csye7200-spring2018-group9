@@ -1,8 +1,0 @@
-@(dateValueForm:Form[DateValue])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
-@import helper._
-
-    @helper.form(action = routes.HomeController.result()){
-        @CSRF.formField
-        @helper.inputDate(dateValueForm("dateValue"))
-        <input type="submit"  value="Prediction">
-    }
