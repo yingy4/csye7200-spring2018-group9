@@ -29,8 +29,7 @@ object Bayes   {
     val testRDD = parsedDataRDD1
     val predictionAndLabel = testRDD.map(p => (model.predict(p.features)))
 
-    return predictionAndLabel.take(7)
-
+    return predictionAndLabel.take(50)
 //        val showPredict = predictionAndLabel.take(50)
 //        println("Prediction" + "\t" + "Label" + "\t" + "Data")
 //        for (i <- 0 to showPredict.length - 1) {

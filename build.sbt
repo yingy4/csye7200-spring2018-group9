@@ -30,6 +30,11 @@ dependencyOverrides += "com.fasterxml.jackson.module" % "jackson-module-scala_2.
 
 libraryDependencies += "org.apache.hadoop" % "hadoop-client" % "2.7.2"
 
+libraryDependencies ++= Seq(
+  "net.databinder.dispatch" %% "dispatch-core" % "0.11.1",  //Dispatch is a wrapper over async http library from apache
+  "org.json4s" %% "json4s-native" % "3.2.9", //json4s support for working with json serialization/deserialization
+  "org.json4s" %% "json4s-jackson" % "3.2.9")
+
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
 
 parallelExecution in Test := false

@@ -32,15 +32,13 @@ class WeatherTest extends FlatSpec with Matchers {
   }
 
   it should "equal the first temperature2" in {
-    val temperature = Temperature2.readTemperatures("./weather.csv")
-    val temperature2 = Temperature2.translateToTemperature2(temperature)(0)
+    val temperature2 = Temperature2.translateToTemperature2(Factors.temperatures)(0)
     val temperature2Test = new Temperature2("1/4/2010",0,-1.0,2.0,-4.0,0.0,2.0,-2.0,2.0,5.0,-1.0,1.0,3.0,-1.0)
     temperature2 shouldBe  temperature2Test
   }
 
   it should "equal the first pressure2" in {
-    val pressure =  Pressure2.readPressures("./weather.csv")
-    val pressure2 = Pressure2.translateToPressure2(pressure)(0)
+    val pressure2 = Pressure2.translateToPressure2(Factors.pressures)(0)
     val pressure2Test = new Pressure2("1/4/2010",0,1018.05,1023.0,1012.0,1022.69,1024.0,1019.0,1014.83,1019.0,1010.0,1005.76,1010.0,1002.0)
     pressure2 shouldBe  pressure2Test
   }

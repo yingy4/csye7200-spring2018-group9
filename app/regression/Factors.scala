@@ -106,7 +106,109 @@ object Factors  {
 //      minHumidityFactors._4+minHumidityFactors._5+minHumidityFactors._6-m(0)),2)
 //  }
 //  println("The mean error of minHumidity is :" + sqrt(sum9/meanTemperature.size))
+   def temperature(s:Temperature2,temType:String):Double={
+    if(temType=="meanTemperature"){
+      return (Factors.meanTemperatureFactors._1 *s.meanTemperature1 +Factors.meanTemperatureFactors._2 *s.meanTemperature2
+      +Factors.meanTemperatureFactors._3 *s.meanTemperature3 + Factors.meanTemperatureFactors._4+
+        Factors.meanTemperatureFactors._5+Factors.meanTemperatureFactors._6)
+    }else if(temType=="maxTemperature"){
+      return (Factors.maxTemperatureFactors._1 *s.maxTemperature1 +Factors.maxTemperatureFactors._2 *s.maxTemperature2
+        +Factors.maxTemperatureFactors._3 *s.maxTemperature3 + Factors.maxTemperatureFactors._4+
+        Factors.maxTemperatureFactors._5+Factors.maxTemperatureFactors._6)
+    }else{
+      return (Factors.minTemperatureFactors._1 *s.minTemperature1 +Factors.minTemperatureFactors._2 *s.minTemperature2
+        +Factors.minTemperatureFactors._3 *s.minTemperature3 + Factors.minTemperatureFactors._4+
+        Factors.minTemperatureFactors._5+Factors.minTemperatureFactors._6)
+    }
+  }
 
+  def sevenTemperature(s:Temperature2):Seq[Temperature2]={
+    val t1=new Temperature2("1",1,1,1,1,
+      s.meanTemperature,s.maxTemperature,s.minTemperature,
+      s.meanTemperature1,s.maxTemperature1,s.minTemperature1,
+      s.meanTemperature2,s.maxTemperature2,s.minTemperature2)
+    val t2=new Temperature2("1",1,1,1,1,
+      temperature(t1,"meanTemperature"),temperature(t1,"maxTemperature"),temperature(t1,"minTemperature"),
+      t1.meanTemperature,t1.maxTemperature,t1.minTemperature,
+      t1.minTemperature,t1.minTemperature,t1.minTemperature)
+    val t3=new Temperature2("1",1,1,1,1,
+      temperature(t2,"meanTemperature"),temperature(t2,"maxTemperature"),temperature(t2,"minTemperature"),
+      t2.meanTemperature,t2.maxTemperature,t2.minTemperature,
+      t2.minTemperature,t2.minTemperature,t2.minTemperature)
+    val t4=new Temperature2("1",1,1,1,1,
+      temperature(t3,"meanTemperature"),temperature(t3,"maxTemperature"),temperature(t3,"minTemperature"),
+      t3.meanTemperature,t3.maxTemperature,t3.minTemperature,
+      t3.minTemperature,t3.minTemperature,t3.minTemperature)
+    val t5=new Temperature2("1",1,1,1,1,
+      temperature(t4,"meanTemperature"),temperature(t4,"maxTemperature"),temperature(t4,"minTemperature"),
+      t4.meanTemperature,t4.maxTemperature,t4.minTemperature,
+      t4.minTemperature,t4.minTemperature,t4.minTemperature)
+    val t6=new Temperature2("1",1,1,1,1,
+      temperature(t5,"meanTemperature"),temperature(t5,"maxTemperature"),temperature(t5,"minTemperature"),
+      t5.meanTemperature,t5.maxTemperature,t5.minTemperature,
+      t5.minTemperature,t5.minTemperature,t5.minTemperature)
+    return Seq(s,t1,t2,t3,t4,t5,t6)
+  }
+
+  def pressure(s:Pressure2,temType:String):Double={
+    if(temType=="meanPressure"){
+      return (Factors.meanPressureFactors._1 *s.meanPressure1 +Factors.meanPressureFactors._2 *s.meanPressure2
+        +Factors.meanPressureFactors._3 *s.meanPressure3 + Factors.meanPressureFactors._4+
+        Factors.meanPressureFactors._5+Factors.meanPressureFactors._6)
+    }else if(temType=="maxPressure"){
+      return (Factors.maxPressureFactors._1 *s.maxPressure1 +Factors.maxPressureFactors._2 *s.maxPressure2
+        +Factors.maxPressureFactors._3 *s.maxPressure3 + Factors.maxPressureFactors._4+
+        Factors.maxPressureFactors._5+Factors.maxPressureFactors._6)
+    }else{
+      return (Factors.minPressureFactors._1 *s.minPressure1 +Factors.minPressureFactors._2 *s.minPressure2
+        +Factors.minPressureFactors._3 *s.minPressure3 + Factors.minPressureFactors._4+
+        Factors.minPressureFactors._5+Factors.minPressureFactors._6)
+    }
+  }
+
+//  def sevenPressure(s:Pressure2):Seq[Pressure2]={
+//    val t1=new Pressure2("1",1,1,1,1,
+//      s.meanPressure,s.maxPressure,s.minPressure,
+//      s.meanPressure1,s.maxTemperature1,s.minTemperature1,
+//      s.meanTemperature2,s.maxTemperature2,s.minTemperature2)
+//    val t2=new Pressure2("1",1,1,1,1,
+//      pressure(t1,"meanPressure"),pressure(t1,"maxPressure"),pressure(t1,"minPressure"),
+//      t1.meanPressure1,t1.maxPressure1,t1.minPressure1,
+//      t1.meanPressure2,t1.maxPressure2,t1.minPressure2)
+//    val t3=new Pressure2("1",1,1,1,1,
+//      pressure(t2,"meanPressure"),pressure(t2,"maxPressure"),pressure(t2,"minPressure"),
+//      t2.meanPressure1,t2.maxPressure1,t2.minPressure,
+//      t2.meanPressure1,t2.minTemperature,t2.minTemperature)
+//    val t4=new Pressure2("1",1,1,1,1,
+//      pressure(t3,"meanPressure"),pressure(t3,"maxPressure"),pressure(t3,"minPressure"),
+//      t3.meanPressure1,t3.maxPressure1,t3.minPressure,
+//      t3.meanPressure1,t3.minTemperature,t3.minTemperature)
+//    val t5=new Pressure2("1",1,1,1,1,
+//      pressure(t4,"meanPressure"),pressure(t4,"maxPressure"),pressure(t4,"minPressure"),
+//      t4.meanPressure1,t4.maxPressure1,t4.minPressure,
+//      t4.minTemperature,t4.minTemperature,t4.minTemperature)
+//    val t6=new Pressure2("1",1,1,1,1,
+//      pressure(t5,"meanPressure"),pressure(t5,"maxPressure"),pressure(t5,"minPressure"),
+//      t5.meanPressure1,t5.maxPressure1,t5.minPressure,
+//      t5.minTemperature,t5.minTemperature,t5.minTemperature)
+//    return Seq(s,t1,t2,t3,t4,t5,t6)
+//  }
+
+  def humidity(s:Humidity2,temType:String):Double={
+    if(temType=="meanhumidity"){
+      return (Factors.meanHumidityFactors._1 *s.meanHumidity1 +Factors.meanHumidityFactors._2 *s.meanHumidity2
+        +Factors.meanHumidityFactors._3 *s.meanHumidity3 + Factors.meanHumidityFactors._4+
+        Factors.meanHumidityFactors._5+Factors.meanHumidityFactors._6)
+    }else if(temType=="maxhumidity"){
+      return (Factors.maxHumidityFactors._1 *s.maxHumidity1 +Factors.maxHumidityFactors._2 *s.maxHumidity2
+        +Factors.maxHumidityFactors._3 *s.maxHumidity3 + Factors.maxHumidityFactors._4+
+        Factors.maxHumidityFactors._5+Factors.maxHumidityFactors._6)
+    }else{
+      return (Factors.minHumidityFactors._1 *s.minHumidity1 +Factors.minHumidityFactors._2 *s.minHumidity2
+        +Factors.minHumidityFactors._3 *s.minHumidity3 + Factors.minHumidityFactors._4+
+        Factors.minHumidityFactors._5+Factors.minHumidityFactors._6)
+    }
+  }
 }
 
 

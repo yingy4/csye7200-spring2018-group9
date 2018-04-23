@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 
 import javax.inject._
-import models.DateValue
+import models.{DateValue, Temperature2}
 import play.api.data.Forms._
 import play.api.data._
 import play.api.mvc._
@@ -30,7 +30,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 
   def result = Action { implicit request => {
     val dateValue = dateValueForm.bindFromRequest().get.dateValue
-    val judgeTime = new SimpleDateFormat("M/d/yyyy").parse("12/31/2017")
+    val judgeTime = new SimpleDateFormat("M/d/yyyy").parse("4/13/2018")
     val rightNow = Calendar.getInstance()
     val time4 =new SimpleDateFormat("M/d/yyyy").format(dateValue)
     val time2=new SimpleDateFormat("M/d/yyyy").parse(time4)
@@ -43,12 +43,12 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     val time = new SimpleDateFormat("M/d/yyyy").format(dateValue).toString
 
     val temperature2=Factors.temperatures2.filter(_.date==time3)(0)
+
     val idT=temperature2.id
     val sevenT=for{i <- 0 to 6} yield Factors.temperatures2(idT+i)
     val meanTemperaturAns=for{s<-sevenT}yield (Factors.meanTemperatureFactors._1 *s.meanTemperature1 +Factors.meanTemperatureFactors._2 *s.meanTemperature2
       +Factors.meanTemperatureFactors._3 *s.meanTemperature3 + Factors.meanTemperatureFactors._4+
       Factors.meanTemperatureFactors._5+Factors.meanTemperatureFactors._6)
-
 
     val maxTemperaturAns = for{s<-sevenT}yield(Factors.maxTemperatureFactors._1 *s.maxTemperature1 +Factors.maxTemperatureFactors._2 *s.maxTemperature2
     +Factors.maxTemperatureFactors._3 *s.maxTemperature3 + Factors.maxTemperatureFactors._4+

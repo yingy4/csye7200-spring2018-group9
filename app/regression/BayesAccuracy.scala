@@ -6,7 +6,7 @@ import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.{SparkConf, SparkContext}
 
-object NaiveBayesTest  {
+object NaiveBayesTest {
     // 设置运行环境
     val conf = new SparkConf().setAppName("Naive Bayes Test").setMaster("local")
       .set("spark.driver.allowMultipleContexts", "true")
