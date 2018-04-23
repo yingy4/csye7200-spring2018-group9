@@ -6,8 +6,8 @@ Renteng Huang
 Balaji Mudaliyar  
 
 # Weather predict about London
-Linear Regression : Temperature , Pressure , Humidity
-Naive Bayes : Weather
+    Linear Regression : Temperature , Pressure , Humidity
+    Naive Bayes : Weather
 
 # Goals of the project
 To predict the future weather condition of London city.
@@ -18,8 +18,8 @@ Collaborative learning and knowledge sharing.
 Delivering each milestone on time.
 
 # User Cases
-input: date
-output: Temperature , Pressure , Weather
+    input: date
+    output: Temperature , Pressure , Weather
 
 # Methodology
 The cleaning of the training dataset .
