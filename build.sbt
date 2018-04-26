@@ -35,6 +35,8 @@ libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-native" % "3.2.9", //json4s support for working with json serialization/deserialization
   "org.json4s" %% "json4s-jackson" % "3.2.9")
 
+unmanagedSourceDirectories in Test += baseDirectory.value / "app/test"
+
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
 
 parallelExecution in Test := false
