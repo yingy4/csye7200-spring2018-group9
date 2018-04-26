@@ -39,4 +39,8 @@ unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/
 
 parallelExecution in Test := false
 
+scalacOptions ++= Seq(
+      "-Xmax-classfile-name", "242"
+)
+
       
